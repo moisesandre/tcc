@@ -55,53 +55,40 @@
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary my-2 my-sm-0" data-toggle="modal" data-target="#exampleModalLong">
+<button type="button" class="btn btn-primary my-2 my-sm-0 trigger-btn" data-toggle="modal" data-target="#myModal">
     LOGIN/CADASTRAR
   </button>
   
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Já está cadastrado?</h5>
-          <p>Faça seu login e boa navegação</p>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-
-          <div class="row">
-            <div class="form-group col-12 ">
-              <label for="cidade">E-MAIL</label>
-              <input type="text" id="cidade" class="form-control" placeholder="Digite seu e-mail"/>
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal fade esti">
+    <div class="modal-dialog modal-login modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">				
+                <h4 class="modal-title">Já é cadastrado?<br>
+                <small>Faça seu login e boa navegação</small></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group col-6 ">
-              <label for="senha">SENHA</label>
-              <input type="password" id="cidade" class="form-control" id="senha" placeholder="Digite sua senha"/>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="label">E-mail</label>
+                        <input type="text" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="label">Senha</label>
+                        <input type="password" class="form-control mb-3" required="required">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg mb-3" value="Login">
+                        <small>Esqueceu a senha? <a href="#">Clique aqui</a></small>			
+                    </div>
+                </form>
             </div>
-          </div>
-
-          <button class="btn btn-primary">LOGIN</button>
-          <p>Esqueceu a senha? <a href="#">clique aqui</a></p>
-
+            <div class="modal-footer">
+                <p>Não possui conta<a href="#"> Cadastre-se</a></p>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button><br><br><br>
-          <p>Esqueceu a senha? <a href="#">clique aqui</a></p>
-        </div>
-      </div>
     </div>
-  </div>
+</div>     
 
-          </form>
-        </div>
     </nav>
      
     <!-- Seção 2 -->
@@ -255,6 +242,8 @@
     <!-- Rodapé -->
 
     <footer class="background_rosa">
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
         <div class="row text-light">
             <div class="col-6">
                 <img src="img/logo.png" class="card-img-top " style="height: 90px; width: 80px;">
@@ -270,79 +259,6 @@
     </footer>
 
     <!-- Fim seção 5 -->
-
-    <div class="container">
-    
-        <h1>Modal</h1>
-           <button class="btn btn-primary" data-nome="Pedro" data-toggle="modal" data-target="#meuModal">
-               Mensagem para Pedro
-           </button>
-           <button class="btn btn-primary" data-nome="Moisés" data-toggle="modal" data-target="#meuModal">
-               Mensagem para Moisés
-           </button>
-   
-           <!-- Modal -->
-           <div id="meuModal" class="modal fade">
-               <div class="modal-dialog modal-sm">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       
-                       <!-- Título -->
-                       <div class="modal-header">
-                           <h4 class="modal-title">Meu modal</h4>
-                           <button class="close" data-dismiss="modal" aria-label="Fechar">
-                               <span aria-hidden="true">&times;</span>
-                           </button>
-                       </div>
-   
-                       <!-- Conteúdo -->
-                       <div class="modal-body">
-                           <div class="row">
-                               <div class="col-12">
-                                   <label for="label">label</label>
-                                   <input type="text" name="para" class="form-control">
-
-                                   <div class="row">
-                                    <div class="col-12">
-                                        <label for="label">label</label>
-                                        <input type="text" name="para" class="form-control">
-                                        <button class="btn btn-primary text-center">oi</button>
-                                    </div>
-                                </div>
-                               </div>
-                           </div><br>
-
-                           <div class="row">
-                               <div class="col-4">
-                                   <span>Mensagem: </span>
-                               </div>
-                               <div class="col-8">
-                                   <textarea class="form-control"></textarea>
-                               </div>
-                           </div>
-   
-                       <!-- Rodapé-->
-                       <div class="modal-footer">
-                           <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                       </div>
-                   </div>
-               </div>
-           </div>
-   
-       </div>
-       <footer>
-           <script src="js/jquery.js"></script>
-           <script src="js/bootstrap.bundle.min.js"></script>
-           <script type="text/javascript">
-               $('#meuModal').on('show.bs.modal', function(event) {
-                   var button = $(event.relatedTarget);
-                   var recipient = button.data('nome');
-                   var modal = $(this);
-                   modal.find('.modal-title').text('Mensagem para '+ recipient);
-                   modal.find('.modal-body input').val(recipient);
-               });
-           </script>
-       </footer>
 
 </body>
 </html>
